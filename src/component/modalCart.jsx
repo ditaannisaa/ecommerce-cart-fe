@@ -15,27 +15,28 @@ import {
 import React from 'react'
 import { IoMdCart } from "react-icons/io";
 import { CartCard } from './cartCard';
+import { useSelector } from 'react-redux';
 
 export const ModalCart = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <GridItem colStart={4} colEnd={'25px'} h='10'>
-                        <Button bg='blue.100' onClick={onOpen}>
+                        <Button bg='green.100' onClick={onOpen}>
                             <Icon as={IoMdCart} fontSize={'30px'}/>
                         </Button>
                         <Modal isOpen={isOpen} onClose={onClose} size={'4xl'} >
                             <ModalOverlay />
                             <ModalContent >
-                                <ModalHeader>Modal Title</ModalHeader>
+                                <ModalHeader borderBottom={'1px'}>Keranjang</ModalHeader>
                                 <ModalCloseButton />
-                                <ModalBody justifyItems={'center'}>
+                                <ModalBody justifyItems={'center'} >
                                     <CartCard/>
                                 </ModalBody>
 
                                 <ModalFooter>
                                     <Button colorScheme='green' mr={3} onClick={onClose}>
-                                    Buy
+                                    Beli
                                     </Button>
                                 </ModalFooter>
                             </ModalContent>
